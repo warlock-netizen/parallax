@@ -12,6 +12,15 @@
     "discover:record": "node scripts/discovery/recorder.mjs",
     "discover:history": "node scripts/discovery/e8_unit_history.mjs"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "bufferutil",
+      "esbuild",
+      "keccak",
+      "utf-8-validate",
+      "@tailwindcss/oxide"
+    ]
+  },
   "dependencies": {
     "@tare/binance": "workspace:*",
     "@tare/kernel": "workspace:*",
