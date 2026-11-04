@@ -59,3 +59,31 @@ flowchart LR
 - The **keeper** is untrusted by the contract: anyone may fill; the worst a keeper can do is nothing.
 - The **web app** never signs and never holds a key. `/api/plan` returns calls; the wallet previews and signs them.
 - The **model** (optional, wording only) cannot change a decision.
+
+
+---
+
+## Stellar (Soroban) Architecture
+
+Parallax extends this architecture natively to the Stellar network using Rust-based Soroban smart contracts:
+
+```mermaid
+flowchart LR
+  U[Owner Freighter Wallet / Agent] --> W[Web App / Soroban RPC]
+  W --> K[Share-Equivalence Kernel]
+  R[Wrapper Registry<br/>Soroban Contract] --> K
+  K --> P{Policy}
+  P -- standing order --> PB[ParallaxBook (Soroban)]
+  KP[Stellar Keeper Agent] -->|simulate via Soroban RPC| PB
+  PB -->|shares_per_token read in-tx| CH[(Stellar Network)]
+  PB -->|Swap via SAC / Soroswap| AMM[Soroswap / Phoenix AMM]
+```
+
+### Soroban Components
+
+| Path | Role | I/O |
+|---|---|---|
+| `contracts/soroban/src/book.rs` | `ParallaxBook`: Standing orders in USDC and real shares, TTL rent extension, share floor invariant | Stellar chain |
+| `contracts/soroban/src/registry.rs` | `WrapperRegistry`: Active wrappers, allowlisted routers, live multiplier reads (`shares_per_token`) | Stellar chain |
+| `services/keeper/src/stellar_keeper.ts` | Autonomous Stellar keeper: polls Soroban RPC, evaluates orders, broadcasts `fill` | Stellar RPC |
+| `packages/registry/src/stellar.ts` | Stellar network endpoints (Testnet/Mainnet), native SAC USDC addresses, RWA wrapper catalog | RPC |

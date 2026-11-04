@@ -37,3 +37,16 @@ A model, when configured, writes wording only. Removing the key changes sentence
 ## D9. Evidence rule
 
 Numbers in README, landing and proof pages are read from `data/**/summary.json` at build time. `scripts/check_claims.ts` fails CI on a number that is in no summary file.
+
+
+## D10. Multi-chain expansion and brand: Parallax
+
+**Parallax.** The apparent shift of an object's position when viewed along two different lines of sight. In tokenized stock markets, one share looks different depending on the wrapper lens you view it through. Parallax calculates the true position.
+
+## D11. Stellar Soroban target
+
+The protocol is ported to Stellar's Soroban WebAssembly (WASM) smart contract platform (Protocol 20+). Soroban provides Turing-complete execution, atomic cross-contract calls, and instantaneous panics/reverts when the `ShareFloor` is violated. Open orders are stored in Persistent Storage with automatic TTL extensions.
+
+## D12. Stellar USDC decimal scaling
+
+On Stellar, native Circle USDC uses 7 decimals (stroops). The protocol normalizes USDC values to 18-decimal fixed point (WAD) internally when computing per-share pricing to maintain high fractional equity precision.

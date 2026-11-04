@@ -2,7 +2,7 @@
   <img src="docs/media/mark.svg" width="76" alt="Tare mark" />
 </p>
 
-<h1 align="center">Tare</h1>
+<h1 align="center">Parallax</h1>`n`n<p align="center"><b>The real price of a tokenized stock, net of the wrapper.</b></p>`n<p align="center"><b>Supporting Stellar (Soroban) & EVM Blockchains</b></p>`n`n> [!NOTE]`n> **Stellar Soroban Support**: Full Soroban smart contract suite (``ParallaxBook`` & ``WrapperRegistry``) and Keeper implementation are available in [``contracts/soroban/``](contracts/soroban/) and documented in [``STELLAR.md``](STELLAR.md).`n
 
 <p align="center"><b>The real price of a tokenized stock, net of the wrapper.</b></p>
 
@@ -400,3 +400,4 @@ See [`SECURITY.md`](SECURITY.md). Report issues through a private advisory on th
 MIT. Fonts: Clash Display, General Sans and Gambetta by Fontshare (Indian Type Foundry, Fontshare Free Font License); JetBrains Mono (OFL). Landing photograph by Namnso Ukpanah on Unsplash. Libraries: viem, wagmi, RainbowKit, Next.js, Tailwind CSS, framer-motion, lightweight-charts (Apache 2.0), OpenZeppelin Contracts, Foundry, BNBAgent SDK.
 
 Built by 0xkinno.
+
